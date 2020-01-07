@@ -1,6 +1,6 @@
-let cost = parseFloat(prompt("Enter the cost."));
-let amount = parseFloat(prompt("Enter the amount given."));
-let change = amount - cost;
+let cost;
+let amount;
+let change;
 let numQuarters = 0;
 let numDimes = 0;
 let numNickels = 0;
@@ -11,8 +11,17 @@ const dime = .1;
 const nickel = .05;
 const penny = .01;
 
-change = change.toFixed(2);
+cost = parseFloat(prompt("Enter the cost."));
+while (cost < 0 || isNaN(cost)) {
+  cost = parseFloat(prompt("Enter the cost."));
+}
+amount = parseFloat(prompt("Enter the amount given."));
+while (amount < cost || isNaN(amount)) {
+  amount = parseFloat(prompt("Enter the amount given."));
+}
 
+change = amount - cost;
+change = change.toFixed(2);
 totalChange = change;
 
 if (change >= quarter) {
